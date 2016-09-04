@@ -1,6 +1,8 @@
 package com.aStar;
 
 
+import java.util.Arrays;
+
 public class Node{
 	private int x;
 	private int y;
@@ -50,5 +52,18 @@ public class Node{
 	}
 	public int getH(int i){
 		return H[i];
+	}
+
+	@Override
+	public String toString() {
+		return "Node{" +
+				"x=" + x +
+				", y=" + y +
+				", value=" + value +
+				", F=" + Arrays.toString(F) +
+				", G=" + Arrays.toString(G) +
+				", H=" + Arrays.toString(H) +
+				//", fnode=" + Arrays.toString(fnode) +
+				'}';
 	}
 }

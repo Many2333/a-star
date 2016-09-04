@@ -1,5 +1,6 @@
 package com.aStar;
 
+import java.io.*;
 import java.util.Random;
 
 public class Map {
@@ -67,4 +68,27 @@ public class Map {
 	public int[][] getMap(){
 		return map;
 	}
+	public int[][] getMap(String path){
+		File file = new File(path);
+		try {
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+			String line = bufferedReader.readLine();
+			int lineNum = 0;
+			while(line != null){
+				for(int i = 0, j = 0; i < line.length(); i += 2){
+					map[lineNum][j] = (int)line.charAt(i) - '0';
+					j++;
+				}
+				lineNum++;
+				line = bufferedReader.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return map;
+	}
+
 }
